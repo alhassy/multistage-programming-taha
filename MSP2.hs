@@ -2,8 +2,6 @@ module MSP2 where
 
 import Language.Haskell.TH hiding (Exp) -- Metaprogramming support for Haskell
 import Language.Haskell.TH.Syntax hiding (Exp)
-import System.IO.Unsafe
-import Data.Time
 
 type Code a = Q (TExp a)
 

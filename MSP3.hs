@@ -2,8 +2,6 @@ module MSP3 where
 
 import Language.Haskell.TH hiding (Exp) -- Metaprogramming support for Haskell
 import Language.Haskell.TH.Syntax hiding (Exp)
-import System.IO.Unsafe
-import Data.Time
 
 type Code a = Q (TExp a)
 
@@ -118,7 +116,7 @@ run p = peval p emptyEnv emptyEnv
 
 fact_direct :: Maybe Int
 fact_direct = let f n = if n == 0 then 1 else n * f (n - 1)
-              in do arg <- Just (10 `div` 2)
+              in do arg <- Just (20 `div` 2)
                     Just (f arg)
 
 -- If we remove the Maybe decorations, the byte difference is still

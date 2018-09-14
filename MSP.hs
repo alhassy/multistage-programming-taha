@@ -18,8 +18,8 @@ data Declaration = Declaration { name :: String , parameter :: String , body :: 
 data Program = Program {supercombinators :: [Declaration] , mainMethod :: Exp}
   deriving (Show)
 
-factdef = head $ supercombinators fact1
-factreal = deval factdef  (const  666) (const (const 666))
+-- factdef = head $ supercombinators fact1
+-- factreal = deval factdef  (const  666) (const (const 666))
 
 fact :: Program
 fact = let 𝓍 = Var "x" in Program

@@ -9,8 +9,6 @@ Read the paper and fix this.
 
 import Language.Haskell.TH hiding (Exp) -- Metaprogramming support for Haskell
 import Language.Haskell.TH.Syntax hiding (Exp)
-import System.IO.Unsafe
-import Data.Time
 import Prelude hiding (repeat)
 
 type Code a = Q (TExp a)
@@ -83,7 +81,7 @@ deval (Declaration name var body) env fenv =
     -- i.e., replace strings with actual values and functions then simply “body”.
     
     this      :: Code Int -> Code Int
-    this x    = repeat 2 ff this x
+    this x    = ((repeat 0 ff) this) x
     {- i.e.,
         λ x → “body[var, name ≔ x, λ y → body[var, name ≔ y, this]]”;
         i.e., we evaluate “body” where references to “name” go to the function
